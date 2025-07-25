@@ -1,111 +1,79 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Tarefas</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        form {
-            display: flex;
-            margin-bottom: 20px;
-        }
-        input[type="text"] {
-            flex-grow: 1;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        button {
-            padding: 10px 15px;
-            background-color: #4a28a7;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-left: 10px;
-        }
-        button:hover {
-            background-color: #218838;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            background-color: #e9ecef;
-            padding: 10px;
-            margin-bottom: 8px;
-            border-radius: 4px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        li:hover {
-            background-color: #d8dee4;
-        }
-        .task-completed {
-            text-decoration: line-through;
-            color: #6c757d;
-            background-color: #f8f9fa;
-        }
-    </style>
+    <title>EBAC Motors</title>
+    <link rel="preconnect" href="http://fonts.googleapis.com">
+    <link rel="preconnect" href="http://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./EBAC MOTORS/main.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 </head>
 <body>
-    <div class="container">
-        <h1>Minha Lista de Tarefas</h1>
-
-        <form id="task-form">
-            <input type="text" id="task-name" placeholder="Adicione sua nova tarefa" required>
-            <button type="submit">Cadastrar Tarefa</button>
-        </form>
-
-        <ul id="task-list">
-            </ul>
+    <header>
+        <div class="container">
+            <h1>EBAC Motors site</h1>
+            <div class="menu-hamburguer">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <ul>
+                    <li>
+                        <a href="#">Sobre</a>
+                    </li>
+                    <li>
+                        <a href="#">Em destaque</a>
+                    </li>
+                    <li>
+                        <a href="#">Promoções</a>
+                    </li>
+                    <li>
+                        <a href="#">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div id="carousel-imagens">
+        <img src="./images/slide1.png" alt="porshe" class="slide 1">
+        <img src="./images/slide2.png " alt="ferrari" class="slide 2">
+        <img src="./images/slide3.png" alt="lamborghini" class="slide 3">
     </div>
+        <section class="container">
+        <img src="./images/loja.jpg" alt="frente loja" class="loja">
+        <div>
+            <h2>Bem-vindo à EBAC Motors</h2>
+            <p>Na EBAC Motors, oferecemos uma experiência única na compra de carros. Temos uma ampla gama de veículos para atender a todas as suas necessidades.</p>
+            <p>Nosso compromisso é com a qualidade e a satisfação do cliente.</p>
+        </div>
+        <h2>Conheça nossos carros</h2>
+        <p>Venha conhecer nossos carros, temos uma grande variedade de modelos e marcas.</p>
+        <p>Venha nos visitar!</p>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            // 1. & 2. Adicionar tarefa ao submeter o formulário
-            $('#task-form').on('submit', function(e) {
-                e.preventDefault(); // Impede o recarregamento da página
-
-                const taskName = $('#task-name').val(); // Pega o valor do input
-
-                if (taskName.trim() !== '') { // Verifica se o campo não está vazio
-                    // Adiciona um novo item <li> à lista <ul>
-                    $('#task-list').append('<li>' + taskName + '</li>');
-                    $('#task-name').val(''); // Limpa o campo de input
-                }
-            });
-
-            // 3. Adicionar efeito de "riscar" ao clicar no item da lista
-            // Usamos 'on' com um seletor de descendente para lidar com itens adicionados dinamicamente
-            $('#task-list').on('click', 'li', function() {
-                $(this).toggleClass('task-completed'); // Adiciona/remove a classe CSS
-            });
+        $(document).ready(function(){
+            $('#carousel-imagens').slick({
+            autoplay:true,
         });
+
+
+            $('.menu-hamburguer').click(function() {
+                $('nav').slideToggle();
+            })
+        })
+
     </script>
 </body>
+
 </html>
